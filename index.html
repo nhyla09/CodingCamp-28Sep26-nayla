@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense &amp; Budget Visualizer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Expense &amp; Budget Visualizer</h1>
+  </header>
+
+  <main class="container">
+
+    <!-- Kolom Kiri: Form + Daftar + Total -->
+    <section class="left-panel">
+
+      <!-- Total Pengeluaran -->
+      <div class="total-section">
+        <h2>Total Pengeluaran</h2>
+        <p id="total-display">Rp 0</p>
+      </div>
+
+      <!-- Formulir Input -->
+      <div class="form-section">
+        <h2>Tambah Transaksi</h2>
+        <div class="form-group">
+          <label for="item-name">Nama Item</label>
+          <input type="text" id="item-name" placeholder="Contoh: Makan Siang">
+          <span class="error-message" id="error-item-name"></span>
+        </div>
+        <div class="form-group">
+          <label for="item-amount">Jumlah (Rp)</label>
+          <input type="number" id="item-amount" placeholder="Contoh: 25000" min="1">
+          <span class="error-message" id="error-item-amount"></span>
+        </div>
+        <div class="form-group">
+          <label for="item-category">Kategori</label>
+          <select id="item-category">
+            <option value="">-- Pilih Kategori --</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+          </select>
+          <span class="error-message" id="error-item-category"></span>
+        </div>
+        <button id="btn-add" type="button">Tambah</button>
+      </div>
+
+      <!-- Daftar Transaksi -->
+      <div class="list-section">
+        <h2>Daftar Transaksi</h2>
+        <ul id="transaction-list"></ul>
+      </div>
+
+    </section>
+
+    <!-- Kolom Kanan: Pie Chart -->
+    <section class="right-panel">
+      <h2>Distribusi Pengeluaran</h2>
+      <canvas id="expenseChart"></canvas>
+    </section>
+
+  </main>
+
+
+  <!-- Chart.js harus dimuat SEBELUM app.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

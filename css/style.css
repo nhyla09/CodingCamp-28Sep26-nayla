@@ -1,0 +1,257 @@
+/* css/style.css — Expense & Budget Visualizer */
+
+/* ============================================
+   1. Reset dan Base
+   ============================================ */
+
+/* Universal box-sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body styles */
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  background-color: #1a237e;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* ============================================
+   2. Layout Utama — Mobile-first (satu kolom)
+   ============================================ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Panel kiri dan kanan: lebar penuh di mobile */
+.left-panel {
+  width: 100%;
+}
+
+.right-panel {
+  width: 100%;
+}
+
+/* ============================================
+   3. Form
+   ============================================ */
+
+.form-section {
+  margin-bottom: 1.5rem;
+}
+
+.form-section h2,
+.list-section h2,
+.total-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #1a237e;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: #1a237e;
+}
+
+#btn-add {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+#btn-add:hover {
+  background-color: #388E3C;
+}
+
+/* ============================================
+   4. Transaction List
+   ============================================ */
+
+.list-section {
+  margin-top: 1rem;
+}
+
+#transaction-list {
+  list-style: none;
+}
+
+#transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+#transaction-list li:last-child {
+  border-bottom: none;
+}
+
+.transaction-name {
+  flex: 1;
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.transaction-amount {
+  color: #1a237e;
+  font-weight: 600;
+  min-width: 90px;
+  text-align: right;
+}
+
+.transaction-category {
+  font-size: 0.85rem;
+  background-color: #e8eaf6;
+  color: #3949ab;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.btn-delete {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-delete:hover {
+  background-color: #b71c1c;
+}
+
+/* ============================================
+   5. Error Messages, Total, Empty State
+   ============================================ */
+
+.error-message {
+  color: #e53935;
+  font-size: 0.85rem;
+  min-height: 1.2rem;
+  display: block;
+}
+
+.total-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#total-display {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a237e;
+  margin-top: 0.25rem;
+}
+
+.empty-state {
+  color: #9e9e9e;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem 0;
+  list-style: none;
+}
+
+/* Chart section styling */
+.right-panel {
+  text-align: center;
+}
+
+.right-panel h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #1a237e;
+}
+
+#expenseChart {
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* ============================================
+   6. Responsive — Desktop (≥ 768px)
+   ============================================ */
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .left-panel {
+    flex: 1;
+    width: auto;
+  }
+
+  .right-panel {
+    flex: 1;
+    width: auto;
+    position: sticky;
+    top: 1rem;
+  }
+}
