@@ -12,6 +12,10 @@
     <h1>Expense &amp; Budget Visualizer</h1>
   </header>
 
+  <div class="theme-toggle">
+    <button id="btn-theme" type="button">🌙 Dark Mode</button>
+  </div>
+
   <main class="container">
 
     <!-- Kolom Kiri: Form + Daftar + Total -->
@@ -22,6 +26,20 @@
         <h2>Total Pengeluaran</h2>
         <p id="total-display">Rp 0</p>
       </div>
+
+      <!-- Batas Pengeluaran -->
+      <div class="limit-section">
+        <h2>Batas Pengeluaran</h2>
+
+      <div class="form-group">
+      <label for="spending-limit">Batas (Rp)</label>
+        <input type="number" id="spending-limit" placeholder="Contoh: 500000" min="0">
+      </div>
+
+    <button id="btn-save-limit" type="button">Simpan Batas</button>
+
+  <p id="limit-status"></p>
+</div>
 
       <!-- Formulir Input -->
       <div class="form-section">
@@ -40,10 +58,11 @@
           <label for="item-category">Kategori</label>
           <select id="item-category">
             <option value="">-- Pilih Kategori --</option>
-            <option value="Food">Food</option>
-            <option value="Transport">Transport</option>
-            <option value="Fun">Fun</option>
           </select>
+          <input type="text" id="custom-category" placeholder="Contoh: Sekolah">
+
+          <button type="button" id="btn-add-category">Tambah Kategori</button>
+
           <span class="error-message" id="error-item-category"></span>
         </div>
         <button id="btn-add" type="button">Tambah</button>
@@ -52,6 +71,21 @@
       <!-- Daftar Transaksi -->
       <div class="list-section">
         <h2>Daftar Transaksi</h2>
+        <div class="filter-section">
+          <label for="month-filter">Bulan</label>
+            <select id="month-filter">
+              <option value="all">Semua Bulan</option>
+            </select>
+        </div>
+        <div class="filter-section">
+        <label for="sort-select">Urutkan</label>
+          <select id="sort-select">
+            <option value="default">Urutan Default</option>
+            <option value="amount-desc">Jumlah Terbesar</option>
+            <option value="amount-asc">Jumlah Terkecil</option>
+            <option value="category">Kategori A-Z</option>
+          </select>
+        </div>
         <ul id="transaction-list"></ul>
       </div>
 
